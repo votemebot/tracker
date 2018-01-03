@@ -1,0 +1,440 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107512713-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments)};
+    gtag('js', new Date());
+
+    gtag('config', 'UA-107512713-1');
+  </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="img/favicon3.ico" type="image/x-icon">
+    <meta property="og:title" content="VoteMe Bot Tracker">
+    <meta property="og:description" content="Information on VoteMe bot to profitably promote your posts on Steem!">
+<!--    <meta property="og:image" content="https://i.imgur.com/t0Gk94V.jpg">-->
+    <meta property="og:url" content="http://www.steemit.com/@voteme">
+
+    <title>VoteMe Bot Tracker</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+    <!-- Import google fonts - Heading first/ text second -->
+    <link href='https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700' rel='stylesheet' type='text/css'>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="scripts/bootstrap-slider.min.js"></script>
+
+    <script src="https://cdn.steemjs.com/lib/latest/steem.min.js"></script>
+
+    <script src="scripts/utils.js"></script>
+    
+    <script src="scripts/bottracker.js?v=7"></script>
+
+    <script type="text/javascript">
+        steem.api.setOptions({ url: 'https://api.steemit.com' });
+    </script>
+
+    <!-- Dynamic admin theme -->
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/plugins.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <style type="text/css">
+      @media (min-width: 768px) {
+        .modal-dialog {
+          width: 800px;
+        }
+      }
+
+    .slider.slider-horizontal { width: 80%; }
+    </style>
+</head>
+<body>
+
+  <!-- .page-navbar -->
+  <div id="header" class="page-navbar header-fixed">
+    <div class="container">
+
+     <!-- .navbar-brand -->
+      <a href="bottracker.html" class="navbar-brand">
+<!--         <img alt="VoteMe Bot Tracker" src="img/logo.png" height="24" width="24"> -->
+         VoteMe Bot Tracker
+      </a>
+      <!-- / navbar-brand -->
+
+      <nav class="nav navbar-nav">
+
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <!-- .no-collapse -->
+        <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+<!--          
+            <li class="active"><a href="#bid"><i class="l-basic-hammer mr10"></i> Bid-Based Voting Bots</a></li>
+            <li><a href="#paid"><i class="l-banknote mr10"></i> Promotion Services</a></li>
+            <li><a href="#free"><i class="fa fa-android mr10"></i> Other Bots</a></li>
+            <li><a href="config.html"><i class="fa fa-code mr10"></i> Bot Owner Config</a></li>
+            <li><a href="curation_calculator.html"><i class="fa fa-calculator mr10"></i> Curation Estimator</a></li>
+-->            
+          </ul>
+        </div>
+
+      </nav>
+    </div>
+  </div>
+  <!-- / page-navbar -->
+
+  <div class="container">
+
+    <div class="panel panel-info plain">
+      <div class="panel-body">
+        <!--<h1>VoteMe Bot Tracker</h1>-->
+        <p>Welcome to the Steem Upvote Bot Tracker for <a target="_blank" href="http://www.steemit.com/@voteme">@voteme</a></p>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading"><h4 class="panel-title"><a name="bid"></a><i class="l-basic-hammer mr10"></i>Bid-Based Voting Bot</h4></div>
+      <div class="panel-body">
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <i class="l-arrows-question mr10"></i>How Bid-Based Voting Bots Work
+                </a>
+              </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+              <div class="panel-body">
+                <p>
+                  Bid-based voting bots work on a bidding system. You can send any amount of SBD above the minimum (minimums vary for each bot) and once the bot account reaches 100% voting power it splits a 100% upvote between all of the bids based on each bid's % of the total amount bid during that period.
+                </p>
+                <p>
+                  It takes 2.4 hours for voting power to return to 100% after a 100% upvote so each bidding period typically lasts roughly 2.4 hours. Recently some bots have switched to giving out a 50% upvote every 1.2 hours instead. You can see this indicated next to the "Vote Value" in the table below.
+                </p>
+                <p>
+                  Take the following example: With a 2.4 hour bidding period user A sends $1 to a voting bot and user B sends $3. The total bid is $4 so that means that user A will get a 25% upvote on their post and user B will get a 75% upvote. If the bot's 100% upvote is worth more than $4 then both user A and B will receive an upvote worth more than they have spent.
+                </p>
+                <p>
+                  Please note that vote values are based on the current value of STEEM. As STEEM prices rise or fall the value of votes will too. Additionally 25% of the value of votes cast more than 30 minutes after a post has been made go to the curation rewards, so for a $0.75 payment you would need at least a $1.00 upvote to be profitable if you are taking curation rewards into account.
+                </p>
+                <p>
+                  Each voting bot has their own quirks and rules and those can change at any time. I do the best I can to keep this site up to date however <strong>it is your responsibility to check each voting bot before you use it</strong>. You can click on the links in the table below to go to the SteemIt profile page for each bot.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo">
+              <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <i class="l-arrows-question mr10"></i>How To Make Profitable Bids Using The Data Below
+                </a>
+              </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+              <div class="panel-body">
+                <p>The table below provides the following information to help you make profitable bids. Please note that the data in this table is not always 100% accurate. Bots may make changes, go down, or any number of other unexpected things. This information is only intended to help you make a more informed decision but <strong>it is your responsibility to check each bot's profile page before making a bid!</strong></p>
+
+                <dl class="dl-horizontal">
+                  <dt>Bot Name</dt>
+                  <dd>This is the name of the bot account and includes a link to the bot's profile page on SteemIt.</dd>
+                  <dt>Vote Value</dt>
+                  <dd>This is the total value of the bot's vote that will be divided up amongst all of the bidders each period. Next to the value is an indicator of the total vote weight used each period.</dd>
+                  <dt>Total Bids</dt>
+                  <dd>This is the total amount of bids placed during the current bidding period. This is the key piece of information necessary to use voting bots profitably by comparing it to the Vote Value.</dd>
+                  <dt>Max Profitable Bid</dt>
+                  <dd>
+                    This is a calculation of the max bid that will be profitable (including 25% curation rewards) based on the current Vote Value and Total Bids. This value will decrease as new bids come in so it's advisable to wait to as close to the Next Vote time as possible before bidding.
+                    Additionally, it is always the case that the lower you bid, the more profitable it will be. So if the Max Profitable Bid says $2.00 then if you bid exactly $2.00 you will break even. If you bid $1 you will have more profit. <strong>I typically try to bid around 50% of the Max Profitable Bid amount right before the Next Vote time.</strong>
+                  </dd>
+                  <dt>Voting Power</dt>
+                  <dd>This is the current voting power of the bot. The current bidding period will end and the bot will start making upvotes when this reaches 100%.</dd>
+                  <dt>Last Vote</dt>
+                  <dd>This is the amount of time that has passed since the last round of upvotes made by the bot. This is good to check because if a bot hasn't made an upvote in a long time then it may be down.</dd>
+                  <dt>Next Vote</dt>
+                  <dd>This is the amount of time left until the bot's voting power regenerates to 100% and the current bidding period ends and the bot starts to make upvotes. You should try to submit your bid as close to before the Next Vote time as possible since that is when the most information is available.</dd>
+                </dl>
+
+                <div class="alert alert-success" role="alert">When there is a profitable bidding opportunity within 10 minutes of a bot's Next Vote time, the bot will be highlighted in green in the table below.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<!--
+        <div class="panel panel-primary plain">
+          <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-sliders mr5"></i> Settings</h3>
+          </div>
+          <div class="panel-body">
+
+            <div class="form-horizontal">
+              <div class="form-group">
+                <label class="col-lg-4 col-md-6 control-label text-left">Display Currency:</label>
+                <div class="col-lg-8 col-md-6">
+                  <select id="currency_list" class="form-control">
+                    <option value="USD">USD</option>
+                    <option value="SBD">SBD</option>
+                    <option value="STEEM">STEEM</option>
+                    <option value="POST REWARDS">POST REWARDS (What is shown on steemit.com)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-lg-4 col-md-6 control-label text-left"> Include 25% curation rewards in Max Profitable Bid calculation:</label>
+                <div class="col-lg-8 col-md-6">
+                  <div class="toggle-custom">
+                      <label class="toggle" data-on="ON" data-off="OFF">
+                          <input type="checkbox" id="curation_option" name="curation_option" checked>
+                          <span class="button-checkbox"></span>
+                      </label>
+                      <label for="fixed-header-toggle"></label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-lg-4 col-md-6 control-label text-left"> Only show bots with vote value greater than:</label>
+                <div class="col-lg-8 col-md-6">
+                  <div style="margin-top: 7px;">
+                    <b>$0&nbsp;&nbsp;</b>
+                    <input id="min_vote_slider" type="text" class="span2" value="" data-slider-min="0" data-slider-max="500" data-slider-step="1" data-slider-value="0"/>
+                    <b>&nbsp;&nbsp;$500</b>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="bs-callout bs-callout-info fade in">
+            <h4>Vote for Witness!</h4>
+            <p>Help support me and the bot tracker by voting for me for Steem witness! Go to <a href="https://steemit.com/~witnesses" target="_blank">https://steemit.com/~witnesses</a> to vote. Thank you!</p>
+        </div>
+-->
+        <div class="bs-callout bs-callout-danger fade in">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <!--<h3>IMPORTANT UPDATE - PLEASE READ!</h3>-->
+            <h4>
+<!--              <ul>
+                <li style="margin-bottom: 5px;">All vote and total bid values are now shown in USD, based on the current exchange rates for STEEM and SBDs.</li>
+                <li style="margin-bottom: 5px;">Profitability calculations now also take into account the exchange rates of the two currencies.</li>
+                <li style="margin-bottom: 5px;">To view the numbers how they were originally, choose the "POST REWARDS" currency which matches what is shown on steemit.com.</li>
+              </ul>
+-->              
+              <p>
+                Current Prices: <!--1 STEEM = $<span id="steem_price">loading...</span> |--> 1 SBD = $<span id="sbd_price">loading...</span>
+              </p>
+            </h4>
+        </div>
+
+        <div id="bid_bot_error" style="display: none;" class="alert alert-danger" role="alert">
+            <i class="glyphicon glyphicon-ban-circle alert-icon "></i>
+            There was an error loading bot info. Please try again in a little bit.
+        </div>
+
+        <div class="table-responsive">
+          <table id="bots_table" class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Bot Name</th>
+                <th>Vote Value (USD)</th>
+                <th>Min Bid</th>
+                <th>Total Bid Value (USD)</th>
+                <th>Max Profitable Bid</th>
+                <th>Last Vote</th>
+                <th>Next Vote</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Loading...</td>
+                <td>Loading...</td>
+                <td>Loading...</td>
+                <td>Loading...</td>
+                <td>Loading...</td>
+                <td>Loading...</td>
+                <td>Loading...</td>
+                <td>Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="panel panel-primary plain">
+          <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-calculator mr5"></i> Vote Calculator</h3>
+          </div>
+          <div class="panel-body">
+            <p>Calculate how much of an upvote you could receive*</p>
+            <form class="form-inline">
+              <div class="form-group">
+                <select id="bot_list" class="form-control"></select>
+              </div>
+              <div class="form-group">
+                <input id="bid_amount" type="text" class="form-control" placeholder="Bid Amount">
+              </div>
+              <div class="form-group">
+                <select id="calc_currency" class="form-control">
+                  <option value="SBD">SBD</option>
+                  <option value="STEEM">STEEM</option>
+                </select>
+              </div>
+              <button id="calculate_vote" class="btn btn-default">Calculate</button>
+              <div class="form-group">
+                <dl class="dl-horizontal values">
+                  <dt>Bid Dollar Value:</dt>
+                  <dd><span class="value" id="bid_value">$0.00</span></dd>
+                  <dt>Total Vote Value:</dt>
+                  <dd><span class="value" id="vote_value">$0.00</span></dd>
+                  <dt>After 25% Curation:</dt>
+                  <dd><span class="value" id="vote_value_net">$0.00</span></dd>
+                </dl>
+              </div>
+            </form>
+
+            <div class="alert alert-warning fade in mt20">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <i class="glyphicon glyphicon-warning-sign alert-icon "></i>
+                <strong>Note!</strong> Actual vote value may differ substantially from what is shown here! This is an informational tool, use at your own risk.
+            </div>
+
+          </div>
+        </div>
+
+      <div class="modal fade modal-style2 modal-center" id="bid_details" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">@<span id="bid_details_bot"></span> Bidding Round Details</h4>
+                  </div>
+                  <div class="modal-body">
+                      <div class="tabs">
+                        <ul class="nav nav-tabs">
+                          <li role="presentation" class="active"><a id="cur_round_show" href="javascript:void(0);">Current Round</a></li>
+                          <li role="presentation"><a id="last_round_show" href="javascript:void(0);">Last Round</a></li>
+                        </ul>
+                      </div>
+
+                      <div id="cur_round">
+                        <dl class="dl-horizontal" style="margin: 10px 0;">
+                            <dt>Total Vote Value:</dt>
+                            <dd><span id="cur_round_vote"></span></dd>
+                            <dt>Total Bids:</dt>
+                            <dd><span id="cur_round_bids"></span></dd>
+                            <dt>Total Bid Value:</dt>
+                            <dd><span id="cur_round_value"></span></dd>
+                            <dt>Current ROI:</dt>
+                            <dd><span id="cur_round_roi"></span></dd>
+                        </dl>
+
+                        <div class="table-responsive">
+                          <table id="bid_details_table_cur" class="table table-striped table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>Sender</th>
+                                    <th style="text-align: right;">Bid</th>
+                                    <th style="text-align: right;">Bid Value (USD)</th>
+                                    <th style="text-align: right;">Vote %</th>
+                                    <th style="text-align: right;">Vote Value</th>
+                                    <th>Memo</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                          </table>
+                        </div>
+
+                      </div>
+
+                      <div id="last_round" style="display: none;">
+                          <dl class="dl-horizontal" style="margin: 10px 0;">
+                              <dt>Total Vote Value:</dt>
+                              <dd><span id="last_round_vote"></span></dd>
+                              <dt>Total Bids:</dt>
+                              <dd><span id="last_round_bids"></span></dd>
+                              <dt>Total Bid Value:</dt>
+                              <dd><span id="last_round_value"></span></dd>
+                              <dt>ROI:</dt>
+                              <dd><span id="last_round_roi"></span></dd>
+                          </dl>
+
+                          <div class="table-responsive">
+                            <table id="bid_details_table_last" class="table table-striped">
+                              <thead>
+                                  <tr>
+                                      <th>Sender</th>
+                                      <th style="text-align: right;">Bid</th>
+                                      <th style="text-align: right;">Bid Value (USD)</th>
+                                      <th style="text-align: right;">Vote %</th>
+                                      <th style="text-align: right;">Vote Value</th>
+                                      <th>Memo</th>
+                                  </tr>
+                              </thead>
+                              <tbody></tbody>
+                            </table>
+                          </div>
+
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+    <div class="modal fade modal-style2 modal-center" id="disclaimer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel" style="text-align: center;">NOTICE - PLEASE READ!</h4>
+          </div>
+          <div class="modal-body" style="text-align: center; font-size: 1.4em;">
+            <ol>
+              <li>Vote values shown on this site are ESTIMATES based on the available information at the current time.<br/><br/></li>
+              <li>For bid-based voting bots, bids often come in right before the round ends which affect the payouts.<br /><br /></li>
+              <li>Please make sure you understand how the bots work and that any payouts estimated here are not guaranteed!</li>
+            </ol>
+          </div>
+          <div class="modal-footer" style="text-align: center;">
+            <button type="button" class="btn btn-default" data-dismiss="modal" style="font-size: 18px;">I Understand</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer" class="clearfix white-bg"><!-- Start #footer  -->
+    <p class="pull-left">
+      Copyright &copy; 2018 <a href="http://www.steemit.com/@voteme" class="color-blue strong" target="_blank">VoteMe Bot</a>. All rights reserved.
+    </p>
+    <p class="pull-right">
+      Bootstrap theme by <a href="http://www.steemit.com/@suggeelson" class="color-blue strong" target="_blank">SuggeElson</a>
+    </p>
+  </div><!-- End #footer  -->
+</body>
+</html>
