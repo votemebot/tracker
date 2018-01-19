@@ -39,7 +39,8 @@
     <script src="scripts/bottracker.js?v=7"></script>
 
     <script type="text/javascript">
-        steem.api.setOptions({ url: 'https://api.steemit.com' });
+        steem.api.setOptions({ transport: 'http', url: 'https://api.steemit.com' });
+      updateSteemVariables();
     </script>
 
     <!-- Dynamic admin theme -->
